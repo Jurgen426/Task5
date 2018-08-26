@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Меню</h2>
+
+@helper BuildMenu(int Parent)
+{
+    foreach (var item in ViewBag.MyMenu)
+    {
+
+        if (@item.ParentId == Parent)
+        {
+            <ul>
+                    <li>
+                        <a href="">@item.Name</a>
+                        @BuildMenu(@item.Id)
+                    </li>
+            </ul>
+        }
+    }
+}
+
+<nav>
+    @BuildMenu(0)
+</nav>
