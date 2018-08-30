@@ -15,9 +15,6 @@ namespace WebApplicationMenu.Controllers
 
         public ActionResult Index()
         {
-            //var menu = db.Menus;
-            //ViewBag.MyMenu = menu;
-
             List<Menu> menuItems = db.Menus.ToList();
             ViewBag.MyMenu = menuItems;
             return View(menuItems);

@@ -9,14 +9,13 @@
 {
     foreach (var item in ViewBag.MyMenu)
     {
-
         if (@item.ParentId == Parent)
         {
             <ul>
-                    <li>
-                        <a href="">@item.Name</a>
-                        @BuildMenu(@item.Id)
-                    </li>
+                <li>
+                    <a href="">@item.Name</a>
+                    @BuildMenu(@item.Id)
+                </li>
             </ul>
         }
     }
