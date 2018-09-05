@@ -1,26 +1,58 @@
 ﻿@{
     ViewBag.Title = "Home Page";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
 
-<h2>Меню</h2>
-
-@helper BuildMenu(int Parent)
-{
-    foreach (var item in ViewBag.MyMenu)
-    {
-        if (@item.ParentId == Parent)
-        {
-            <ul>
-                <li>
-                    <a href="">@item.Name</a>
-                    @BuildMenu(@item.Id)
-                </li>
-            </ul>
+    <style>
+        #navbar1 ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            
         }
-    }
-}
 
-<nav>
-    @BuildMenu(0)
-</nav>
+        #navbar1 li:hover ul {
+            display: block;
+        }
+
+        #navbar1, #navbar1 ul {
+            margin: 0px;
+            padding: 0px;
+            list-style-type: none;
+        }
+
+        #navbar1 {
+            height: 30px;
+        }
+
+            #navbar1 li {
+                float: left;
+                position: relative;
+            }
+
+            #navbar1 ul li {
+                float: none;
+            }
+    </style>
+
+    <h2>Меню</h2>
+
+
+    <div>
+        @Html.Raw(ViewBag.Message)     
+    </div>
+    
+
+
+
+   
+
+
+
+
+    
+
+
+
+    
+

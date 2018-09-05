@@ -15,9 +15,51 @@ namespace WebApplicationMenu.Controllers
 
         public ActionResult Index()
         {
+            
+            ViewBag.Message = CreateMenu(0);
+            return View();
+        }
+        public string CreateMenu(int Parent)
+        {
+            //bool IsExist = false;
             List<Menu> menuItems = db.Menus.ToList();
-            ViewBag.MyMenu = menuItems;
-            return View(menuItems);
+            string res = "";
+
+            ////проверка на существование вложенных пунктов
+            //foreach (var i in menuItems)
+            //{
+            //    if (i.ParentId == Parent)
+            //    {
+            //        IsExist = true;
+            //    }
+
+            //}
+
+
+            //if (IsExist)
+            //{
+                if (Parent == 0)
+                {
+                    res += "<ul id=\"navbar1\">";
+                }
+                else
+                {
+                    res += "<ul>";
+                }
+                foreach (var item in menuItems)
+                {
+                    if (item.ParentId == Parent)
+                    {
+                        res += "<li><a href = \"\">" + item.Name + " </a>";
+                        res += CreateMenu(item.Id);
+                        res += "</li>";
+                    }
+                }
+                res += "</ul>";
+
+            //}
+            return res;
+
         }
 
         public ActionResult About()

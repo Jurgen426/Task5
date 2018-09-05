@@ -26,12 +26,9 @@ namespace WebApplicationMenu.Models
             db.Menus.Add(new Menu {Id = 8, Name = "Найти", ParentId = 7 });
             db.Menus.Add(new Menu {Id = 9, Name = "Найти в файлах", ParentId = 7 });
             db.Menus.Add(new Menu { Id = 10, Name = "Преобразование регистра", ParentId = 7 });
-            db.Menus.Add(new Menu { Id = 11, Name = "строчные", ParentId = 10 });
-            db.Menus.Add(new Menu { Id = 12, Name = "ПРОПИСНЫЕ", ParentId = 10 });
-            db.Menus.Add(new Menu { Id = 13, Name = "Таблица символов", ParentId = 2 });
-            db.Menus.Add(new Menu { Id = 14, Name = "Справка", ParentId = 0 });
-            db.Menus.Add(new Menu { Id = 15, Name = "О программе", ParentId = 14 });
-
+            db.Menus.Add(new Menu { Id = 11, Name = "Таблица символов", ParentId = 2 });
+            db.Menus.Add(new Menu { Id = 12, Name = "Справка", ParentId = 0 });
+            db.Menus.Add(new Menu { Id = 13, Name = "О программе", ParentId = 12 });
             base.Seed(db);
         }
     }
